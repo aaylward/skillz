@@ -86,7 +86,7 @@ What you check depends on the review depth. Work through the applicable items:
 - **Style consistency**: Does it match the project's existing patterns?
 
 #### Deep only
-- **Blast radius**: What modules/services/callers are affected? Is it backward compatible?
+- **Blast radius**: What modules/services/callers are affected? Is it backward compatible? Only surface this in the output if Moderate or Wide.
 - **Concurrency and race conditions**: Shared mutable state, TOCTOU, non-atomic operations
 - **TCO impact**: Does this add meaningful maintenance burden — new dependencies, abstractions, or operational complexity?
 - **Rollback story**: If this breaks in production, how hard is it to revert?
@@ -171,13 +171,15 @@ Always call out what was done well. Name specific things the author got right �
 
 <Coverage gaps or test failures. Omit if adequate.>
 
+<!-- DEEP REVIEWS ONLY — omit both sections below for light and standard reviews -->
+
 ## Blast Radius
 
-<Deep reviews only. Narrow | Moderate | Wide — one sentence explanation.>
+<Moderate or Wide only — omit if Narrow>
 
 ## TCO
 
-<Deep reviews only, and only if the change markedly increases maintenance burden.>
+<Only if the change markedly increases maintenance burden>
 ```
 
 ## Verdict Criteria
