@@ -186,14 +186,16 @@ Always call out what was done well. Name specific things the author got right �
 
 The verdict is the most important part of the review — it's what the author acts on first.
 
-- **Approve** — The change is correct, well-tested, and safe to merge as-is. Minor style nits don't block approval, but missing tests for new logic do.
+- **Approve** — The change improves the codebase, is correct, well-tested, and safe to merge as-is. Changes don't need to be perfect, but they should leave things better than they found them. Minor style nits don't block approval, but missing tests for new logic do.
 - **Comment** — The change looks reasonable but has gaps that should be addressed. Use this when there are no outright bugs but the PR isn't fully ready (e.g., missing tests for new code paths, unclear intent, or non-trivial concerns that need the author's input).
 - **Request Changes** — The change has correctness issues, security problems, or is fundamentally mis-approached.
 
-**When to withhold Approve:**
-- Security-sensitive changes (auth, access control, client identity, crypto, input validation) without corresponding tests should not be approved. Even if the fix looks correct, untested security code is a regression waiting to happen. Use "Comment" and explicitly call out that tests are needed before merging.
+**Non-blocking issues do not prevent Approve.** If your only findings are non-blocking, use Approve — that's what non-blocking means.
+
+**Blocking issues that must appear as Blocking (not non-blocking):**
+- Security-sensitive changes (auth, access control, client identity, crypto, input validation) without corresponding tests. Even if the fix looks correct, untested security code is a regression waiting to happen. This is a blocking issue — call it out explicitly and use "Request Changes."
 - New branching logic or conditional behavior without any test coverage.
-- Changes where you cannot verify correctness from the diff alone and would need to run tests or read significant surrounding code.
+- Changes where you cannot verify correctness from the diff alone.
 
 The bar for "Approve" should be: "I am confident this is safe to merge right now." If you're not confident, use "Comment" — it's not a negative signal, it's an honest one.
 
