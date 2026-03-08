@@ -1,11 +1,11 @@
 ---
-name: code-review
+name: robot-review
 description: Review a pull request by link or from the current branch. Checks out the branch, fetches the diff, and produces a structured code review scaled to the PR's size and risk. Use this skill whenever the user wants to review a PR, look at changes in a pull request, give feedback on a diff, or assess code quality of a branch.
 ---
 
-# Code Review Skill
+# Robot Review Skill
 
-Usage: `/code-review <pr-link>`
+Usage: `/robot-review <pr-link>`
 
 Performs a structured review of a pull request, scaled to its size and risk. Small safe changes get a brief review; large risky changes get a thorough one.
 
